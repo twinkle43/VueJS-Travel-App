@@ -1,0 +1,55 @@
+<template>
+    <section> 
+        <h1> Experiences </h1>
+        <h2> {{experience.name}} </h2>
+        <div class="experience-details">
+            <img v-bind:src="require(`@/assets/${experience.image}`)" v-bind:alt="experience.name">
+            <p> {{experience.description}} </p>
+        </div>
+    </section>
+</template>
+
+<script>
+import store from "@/store.js";
+
+export default {
+    props : {
+        slug: {
+            type : String,
+            required : true
+        },
+        experienceSlug : {
+            type : String,
+            required : true
+        },
+    },
+    computed :{
+        destination(){
+            return store.destinations.find(item => item.slug === this.slug);
+        },
+        experience(){
+            return this.destination.experiences.find(item => item.slug === this.experienceSlug);
+        }
+    }
+}
+</script>
+
+<style scoped>
+     img{
+        max-width: 600px;
+        height: auto;
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .experirence-details{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    p{
+        margin : 0 40px;
+        font-size: 20px;
+        text-align: left;
+    }
+</style>
