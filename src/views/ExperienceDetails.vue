@@ -42,7 +42,7 @@ export default {
         max-height: 400px;
     }
 
-    .experirence-details{
+    .experience-details{
         display: flex;
         justify-content: space-between;
     }

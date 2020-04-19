@@ -1,0 +1,31 @@
+<template>
+    <span class="go-back">
+        <button v-on:click="goBack"> Go Back </button>
+    </span>
+</template>
+
+<script>
+export default {
+    methods : {
+        goBack(){
+            return this.$router.go(-1);
+        }
+    }
+}
+</script>
+
+<style scoped>
+    .go-back{
+        display: flex;      
+    }
+
+    button{
+        border: 0;
+    }
+
+    button:hover{
+        cursor: pointer;
+    }
+
+
+</style>
